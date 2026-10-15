@@ -507,7 +507,9 @@ td:first-child {
   .sidebar {
     transform: translateX(-100%);
     z-index: 2;
+    transition: transform .2s ease;
   }
+  .sidebar.open { transform: translateX(0); }
   .main {
     margin-left: 0;
   }

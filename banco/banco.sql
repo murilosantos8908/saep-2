@@ -122,3 +122,34 @@ VALUES
     );
 
 -- Senha do usuário demo: 123456 (gere o hash com bcryptjs antes de inserir em produção)
+-- Dados adicionais para demonstração (senha para as contas abaixo: 123456)
+INSERT INTO usuarios (nome,email,senha,tipo,status) VALUES
+('Ana Oliveira','admin@almoxarifado.com','$2a$10$rQ0yxh3BQ2MvaW8SLf/8Z.KtF7oFtIzkjbOtQix8sPjBCVM4jZ9VW','administrador','ativo'),
+('Marcos Silva','marcos@almoxarifado.com','$2a$10$rQ0yxh3BQ2MvaW8SLf/8Z.KtF7oFtIzkjbOtQix8sPjBCVM4jZ9VW','almoxarife','ativo'),
+('Juliana Costa','juliana@almoxarifado.com','$2a$10$rQ0yxh3BQ2MvaW8SLf/8Z.KtF7oFtIzkjbOtQix8sPjBCVM4jZ9VW','solicitante','ativo'),
+('Rafael Souza','rafael@almoxarifado.com','$2a$10$rQ0yxh3BQ2MvaW8SLf/8Z.KtF7oFtIzkjbOtQix8sPjBCVM4jZ9VW','solicitante','ativo');
+INSERT INTO categorias (nome) VALUES ('Papéis'),('Descartáveis'),('Utensílios');
+INSERT INTO fornecedores (nome,contato,telefone,email) VALUES
+('Protege Mais','Carla Mendes','(11) 3333-3000','vendas@protegemais.com'),
+('Higiene Total','Paulo Lima','(11) 3333-4000','contato@higienetotal.com'),
+('Distribuidora Central','Equipe comercial','(11) 3333-5000','vendas@distribuidoracentral.com');
+INSERT INTO produtos (nome,categoria_id,fornecedor_id,unidade_medida,quantidade_estoque,estoque_minimo) VALUES
+('Desinfetante lavanda 2L',2,1,'unidade',48,12),
+('Álcool 70% 1L',2,2,'unidade',32,10),
+('Saco de lixo 100L',5,3,'pacote',55,15),
+('Papel higiênico folha dupla',4,2,'fardo',24,8),
+('Pano multiuso',6,1,'unidade',40,10),
+('Máscara descartável',3,1,'caixa',18,5),
+('Sabonete líquido 5L',1,2,'galão',14,6);
+INSERT INTO movimentacoes (produto_id,tipo_movimentacao,quantidade,usuario_id,observacao) VALUES
+(1,'entrada',120,2,'Carga inicial de demonstração'),
+(2,'saida',6,3,'Reposição de limpeza'),
+(3,'entrada',40,2,'Recebimento de fornecedor'),
+(4,'saida',3,4,'Consumo do setor administrativo'),
+(6,'entrada',48,2,'Carga inicial de demonstração'),
+(7,'saida',5,3,'Uso interno');
+INSERT INTO pedidos_solicitacoes (usuario_id,produto_id,quantidade,status) VALUES
+(3,1,4,'pendente'),(4,5,2,'aprovado'),(3,6,1,'atendido'),(4,3,3,'pendente');
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+FLUSH PRIVILEGES;

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Produtos | Almoxarifado</title>
+    <link rel="stylesheet" href="pages.css" />
+  </head>
+
+  <body data-page="produtos">
+    <aside>
+      <div class="nav-heading"><h2>Almoxarifado</h2><button id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primaryNav"><span></span><span></span><span></span></button></div>
+      <nav id="primaryNav">
+        <a href="dashboard.html">Painel</a>
+        <a href="estoque.html">Estoque</a
+        ><a href="movimentacoes.html">Movimentações</a
+        ><a href="solicitacoes.html">Solicitações</a
+        ><a href="produtos.html">Produtos</a
+        ><a href="fornecedores.html">Fornecedores</a
+        ><a href="relatorios.html">Relatórios</a
+        ><a href="login.html" id="logout">Sair</a>
+      </nav>
+    </aside>
+    <main>
+      <header>
+        Olá, <b id="userName">Usuário</b><small id="userRole"></small>
+      </header>
+      <section class="content">
+        <h1>Produtos</h1>
+        <p>Catálogo e níveis de estoque</p>
+        <div id="message" role="status"></div>
+        <form id="productForm" class="form">
+          <label>Nome<input name="nome" required /></label
+          ><label
+            >Categoria<select
+              id="categoria"
+              name="categoria_id"
+            ></select></label
+          ><label
+            >Fornecedor<select
+              id="fornecedor"
+              name="fornecedor_id"
+            ></select></label
+          ><label>Unidade<input name="unidade_medida" value="unidade" /></label
+          ><label
+            >Quantidade<input
+              name="quantidade_estoque"
+              type="number"
+              min="0"
+              step="0.01"
+              value="0" /></label
+          ><label
+            >Estoque mínimo<input
+              name="estoque_minimo"
+              type="number"
+              min="0"
+              step="0.01"
+              value="0" /></label
+          ><button class="primary">Cadastrar produto</button>
+        </form>
+        <section id="stats" class="stats"></section>
+        <section class="card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Produto</th>
+                  <th>Categoria</th>
+                  <th>Fornecedor</th>
+                  <th>Quantidade</th>
+                  <th>Mínimo</th>
+                  <th>Situação</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="pages.js"></script>
+  </body>
+</html>

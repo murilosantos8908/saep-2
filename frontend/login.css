@@ -44,9 +44,7 @@ body {
   border-radius: 50%;
   right: -180px;
   bottom: -200px;
-  box-shadow:
-    0 0 0 80px #ffffff08,
-    0 0 0 160px #ffffff05;
+  box-shadow: 0 0 0 80px #ffffff08, 0 0 0 160px #ffffff05;
 }
 
 .brand {
@@ -81,7 +79,7 @@ body {
 }
 
 .visual-copy h1 {
-  font: 800 clamp(38px, 4.4vw, 62px)/1.1 "Plus Jakarta Sans";
+  font: 800 clamp(38px, 4.4vw, 62px) / 1.1 "Plus Jakarta Sans";
   letter-spacing: -2px;
   margin: 0 0 24px;
 }
