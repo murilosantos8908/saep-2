@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Almoxarifado | Acesso</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+
+  <body class="login-page">
+    <main class="login-shell">
+      <section class="login-visual">
+        <div class="brand">
+          <span class="brand-mark">✦</span><span>Almoxarifado</span>
+        </div>
+        <div class="visual-copy">
+          <p class="eyebrow">GESTÃO INTELIGENTE</p>
+          <h1>Controle que mantém tudo <em>em ordem.</em></h1>
+          <p>
+            Acompanhe seus materiais de limpeza, reduza desperdícios e nunca
+            fique sem o essencial.
+          </p>
+        </div>
+        <div class="visual-stats">
+          <span><b>1.248</b><small>itens controlados</small></span
+          ><span><b>98%</b><small>disponibilidade</small></span>
+        </div>
+      </section>
+      <section class="login-card">
+        <div class="mobile-brand brand">
+          <span class="brand-mark">✦</span><span>Almoxarifado</span>
+        </div>
+        <div>
+          <p class="eyebrow">BEM-VINDO DE VOLTA</p>
+          <h2>Entre na sua conta</h2>
+          <p class="muted">Acesse o painel de gestão do almoxarifado.</p>
+        </div>
+        <form id="loginForm">
+          <label
+            >E-mail<input
+              id="email"
+              type="email"
+              placeholder="seu@email.com"
+              value="admin@almoxarifado.com"
+              required /></label
+          ><label
+            >Senha
+            <div class="password">
+              <input
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                value="123456"
+                required
+              /><button type="button" id="togglePassword">Mostrar</button>
+            </div></label
+          >
+          <div class="form-line">
+            <label class="check"
+              ><input type="checkbox" checked /> Lembrar de mim</label
+            ><a href="#">Esqueceu a senha?</a>
+          </div>
+          <button class="primary-btn" type="submit">
+            Entrar no sistema <span>→</span>
+          </button>
+          <p id="loginMessage" class="message"></p>
+        </form>
+        <p class="demo-hint">Demo: admin@almoxarifado.com / 123456</p>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

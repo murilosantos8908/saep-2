@@ -1,0 +1,262 @@
+:root {
+  --navy: #12243d;
+  --blue: #2463eb;
+  --ink: #1b2a41;
+  --muted: #8090a5;
+  --line: #e7edf4;
+  --bg: #f5f8fc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.login-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+}
+
+.login-visual {
+  background: var(--navy);
+  color: #fff;
+  padding: 48px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-visual:after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border: 1px solid #ffffff16;
+  border-radius: 50%;
+  right: -180px;
+  bottom: -200px;
+  box-shadow:
+    0 0 0 80px #ffffff08,
+    0 0 0 160px #ffffff05;
+}
+
+.brand {
+  font: 700 18px "Plus Jakarta Sans";
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--blue);
+  color: #fff;
+}
+
+.visual-copy {
+  max-width: 520px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #638df4;
+  margin: 0 0 18px;
+}
+
+.visual-copy h1 {
+  font: 800 clamp(38px, 4.4vw, 62px)/1.1 "Plus Jakarta Sans";
+  letter-spacing: -2px;
+  margin: 0 0 24px;
+}
+
+.visual-copy em {
+  color: #78a3ff;
+  font-style: normal;
+}
+
+.visual-copy > p:not(.eyebrow) {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #afbdd1;
+  max-width: 440px;
+}
+
+.visual-stats {
+  display: flex;
+  gap: 70px;
+  position: relative;
+  z-index: 1;
+}
+
+.visual-stats b {
+  display: block;
+  font: 700 26px "Plus Jakarta Sans";
+}
+
+.visual-stats small {
+  display: block;
+  color: #8191a8;
+  margin-top: 4px;
+}
+
+.login-card {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px clamp(30px, 8vw, 120px);
+  gap: 30px;
+}
+
+.login-card h2 {
+  font: 800 30px "Plus Jakarta Sans";
+  margin: 0 0 8px;
+}
+
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+.login-card form {
+  display: grid;
+  gap: 20px;
+}
+
+.login-card label {
+  font-size: 13px;
+  font-weight: 600;
+  display: grid;
+  gap: 8px;
+}
+
+.login-card input {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 14px 15px;
+  font: inherit;
+  color: var(--ink);
+  outline: none;
+  background: #fff;
+}
+
+.login-card input:focus {
+  border-color: #6d98fa;
+  box-shadow: 0 0 0 3px #2463eb16;
+}
+
+.password {
+  position: relative;
+}
+
+.password input {
+  width: 100%;
+  padding-right: 70px;
+}
+
+.password button {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  border: 0;
+  background: none;
+  color: var(--blue);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.form-line {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400 !important;
+}
+
+.form-line a {
+  font-size: 12px;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.check {
+  display: flex !important;
+  align-items: center;
+  gap: 7px !important;
+}
+
+.check input {
+  accent-color: var(--blue);
+  width: auto;
+}
+
+.primary-btn {
+  border: 0;
+  border-radius: 9px;
+  background: var(--blue);
+  color: white;
+  padding: 15px;
+  font: 600 14px inherit;
+  cursor: pointer;
+  box-shadow: 0 8px 15px #2463eb25;
+}
+
+.primary-btn span {
+  float: right;
+  font-size: 20px;
+  line-height: 12px;
+}
+
+.message {
+  font-size: 13px;
+  color: #d14343;
+  margin: 0;
+}
+
+.demo-hint {
+  font-size: 11px;
+  color: #a0adbc;
+  text-align: center;
+}
+
+.mobile-brand {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .login-shell {
+    display: block;
+  }
+
+  .login-visual {
+    display: none;
+  }
+
+  .login-card {
+    min-height: 100vh;
+    max-width: 520px;
+    margin: auto;
+    padding: 32px;
+  }
+
+  .mobile-brand {
+    display: flex;
+    margin-bottom: 40px;
+  }
+}

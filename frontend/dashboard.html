@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Almoxarifado | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">✦</span><span>Almoxarifado</span>
+      </div>
+      <nav>
+        <small>MENU PRINCIPAL</small
+        ><a class="active" href="#dashboard">▦ <span>Visão geral</span></a
+        ><a href="#estoque">▤ <span>Estoque</span><i>3</i></a
+        ><a href="#movimentacoes">⇄ <span>Movimentações</span></a
+        ><a href="#solicitacoes">☷ <span>Solicitações</span><i>5</i></a
+        ><small>GESTÃO</small><a href="#produtos">▣ <span>Produtos</span></a
+        ><a href="#fornecedores">♧ <span>Fornecedores</span></a
+        ><a href="#relatorios">▥ <span>Relatórios</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <a href="#config">⚙ <span>Configurações</span></a
+        ><a href="login.html" id="logout">↪ <span>Sair</span></a>
+      </div>
+    </aside>
+    <main class="main">
+      <header>
+        <button class="menu-btn">☰</button>
+        <div class="search">
+          ⌕ <input placeholder="Pesquisar no sistema..." />
+        </div>
+        <div class="header-actions">
+          <button>◔</button>
+          <div class="user">
+            <span class="avatar">AO</span
+            ><span
+              ><b id="userName">Ana Oliveira</b
+              ><small>Administrador</small></span
+            ><span>⌄</span>
+          </div>
+        </div>
+      </header>
+      <div class="content">
+        <div class="page-title">
+          <div>
+            <p class="eyebrow">QUARTA-FEIRA, 14 DE OUTUBRO DE 2026</p>
+            <h1>Bom dia, Ana <span>✦</span></h1>
+            <p class="muted">Aqui está o resumo do seu almoxarifado hoje.</p>
+          </div>
+          <button class="primary-btn" onclick="openModal()">
+            ＋ Nova movimentação
+          </button>
+        </div>
+        <section class="stats">
+          <article>
+            <div class="stat-icon blue">▤</div>
+            <span>ITENS EM ESTOQUE</span><b>1.248</b
+            ><small class="up">↗ 8,2% <i>vs. mês anterior</i></small>
+          </article>
+          <article>
+            <div class="stat-icon green">↗</div>
+            <span>ENTRADAS NO MÊS</span><b>386</b
+            ><small class="up">↗ 12,5% <i>vs. mês anterior</i></small>
+          </article>
+          <article>
+            <div class="stat-icon orange">↘</div>
+            <span>SAÍDAS NO MÊS</span><b>214</b
+            ><small class="down">↘ 4,3% <i>vs. mês anterior</i></small>
+          </article>
+          <article>
+            <div class="stat-icon red">!</div>
+            <span>ESTOQUE BAIXO</span><b>3</b
+            ><small class="danger">Requer atenção</small>
+          </article>
+        </section>
+        <section class="grid">
+          <article class="panel chart-panel">
+            <div class="panel-head">
+              <div>
+                <h3>Movimentações</h3>
+                <p class="muted">Entradas e saídas nos últimos 7 dias</p>
+              </div>
+              <select>
+                <option>Últimos 7 dias</option>
+                <option>Este mês</option>
+              </select>
+            </div>
+            <div class="chart">
+              <div class="y-labels">
+                <span>100</span><span>75</span><span>50</span><span>25</span
+                ><span>0</span>
+              </div>
+              <div class="bars">
+                <div>
+                  <i style="height: 45%"></i
+                  ><i class="out" style="height: 26%"></i><small>08</small>
+                </div>
+                <div>
+                  <i style="height: 60%"></i
+                  ><i class="out" style="height: 36%"></i><small>09</small>
+                </div>
+                <div>
+                  <i style="height: 42%"></i
+                  ><i class="out" style="height: 29%"></i><small>10</small>
+                </div>
+                <div>
+                  <i style="height: 82%"></i
+                  ><i class="out" style="height: 49%"></i><small>11</small>
+                </div>
+                <div>
+                  <i style="height: 67%"></i
+                  ><i class="out" style="height: 38%"></i><small>12</small>
+                </div>
+                <div>
+                  <i style="height: 92%"></i
+                  ><i class="out" style="height: 56%"></i><small>13</small>
+                </div>
+                <div>
+                  <i style="height: 73%"></i
+                  ><i class="out" style="height: 43%"></i><small>14</small>
+                </div>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i></i> Entradas</span><span><i></i> Saídas</span>
+            </div>
+          </article>
+          <article class="panel alert-panel">
+            <div class="panel-head">
+              <div>
+                <h3>Estoque baixo</h3>
+                <p class="muted">Produtos que precisam de reposição</p>
+              </div>
+              <a href="#estoque">Ver todos →</a>
+            </div>
+            <div class="alert-item">
+              <span class="product-icon">🧴</span>
+              <div><b>Água sanitária 5L</b><small>Química Limpa</small></div>
+              <strong>4 <small>/ mín. 10</small></strong>
+            </div>
+            <div class="alert-item">
+              <span class="product-icon">🧽</span>
+              <div><b>Esponja multiuso</b><small>Casa & Cia</small></div>
+              <strong>8 <small>/ mín. 20</small></strong>
+            </div>
+            <div class="alert-item">
+              <span class="product-icon">🧤</span>
+              <div><b>Luva de limpeza M</b><small>Protege Mais</small></div>
+              <strong>6 <small>/ mín. 15</small></strong>
+            </div>
+          </article>
+        </section>
+        <section class="panel table-panel">
+          <div class="panel-head">
+            <div>
+              <h3>Movimentações recentes</h3>
+              <p class="muted">Últimas entradas e saídas registradas</p>
+            </div>
+            <a href="#movimentacoes">Ver histórico completo →</a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>PRODUTO</th>
+                  <th>TIPO</th>
+                  <th>QUANTIDADE</th>
+                  <th>RESPONSÁVEL</th>
+                  <th>DATA E HORA</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="product-icon blue-bg">🧼</span
+                    ><b>Detergente neutro 500ml</b>
+                  </td>
+                  <td><span class="pill entry">Entrada</span></td>
+                  <td><b>+ 120 un.</b></td>
+                  <td>Marcos Silva</td>
+                  <td>Hoje, 09:42</td>
+                  <td>•••</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="product-icon purple-bg">🧻</span
+                    ><b>Papel toalha interfolhado</b>
+                  </td>
+                  <td><span class="pill exit">Saída</span></td>
+                  <td><b>- 30 pct.</b></td>
+                  <td>Juliana Costa</td>
+                  <td>Hoje, 08:15</td>
+                  <td>•••</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="product-icon orange-bg">🧹</span
+                    ><b>Desinfetante lavanda 2L</b>
+                  </td>
+                  <td><span class="pill entry">Entrada</span></td>
+                  <td><b>+ 48 un.</b></td>
+                  <td>Marcos Silva</td>
+                  <td>Ontem, 16:30</td>
+                  <td>•••</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+    <div id="modal" class="modal">
+      <div class="modal-box">
+        <button class="close" onclick="closeModal()">×</button>
+        <h2>Nova movimentação</h2>
+        <p class="muted">Registre uma entrada ou saída de estoque.</p>
+        <label
+          >Produto<select>
+            <option>Detergente neutro 500ml</option>
+            <option>Água sanitária 5L</option>
+            <option>Desinfetante lavanda 2L</option>
+          </select></label
+        ><label
+          >Tipo<select>
+            <option>Entrada</option>
+            <option>Saída</option>
+          </select></label
+        ><label>Quantidade<input type="number" min="1" value="1" /></label
+        ><button class="primary-btn" onclick="closeModal()">
+          Registrar movimentação
+        </button>
+      </div>
+    </div>
+    <script>
+      const u = JSON.parse(localStorage.getItem("almoxarifado_user") || "{}");
+      if (u.nome) document.querySelector("#userName").textContent = u.nome;
+      document.querySelector("#logout").onclick = () => localStorage.clear();
+      function openModal() {
+        document.querySelector("#modal").classList.add("show");
+      }
+      function closeModal() {
+        document.querySelector("#modal").classList.remove("show");
+      }
+    </script>
+  </body>
+</html>
