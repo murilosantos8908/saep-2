@@ -33,8 +33,14 @@ nav a:hover {
   background: #213756;
   color: white;
 }
-.nav-heading { display: flex; align-items: center; justify-content: space-between; }
-#menuToggle { display: none; }
+.nav-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#menuToggle {
+  display: none;
+}
 main {
   margin-left: 230px;
 }
@@ -161,15 +167,33 @@ td {
   aside h2 {
     margin: 0;
   }
-  .nav-heading { min-height: 42px; }
-  #menuToggle { display: grid; gap: 4px; width: 42px; height: 38px; place-content: center; border: 1px solid #52647c; border-radius: 6px; background: transparent; }
-  #menuToggle span { display: block; width: 20px; height: 2px; background: white; }
+  .nav-heading {
+    min-height: 42px;
+  }
+  #menuToggle {
+    display: grid;
+    gap: 4px;
+    width: 42px;
+    height: 38px;
+    place-content: center;
+    border: 1px solid #52647c;
+    border-radius: 6px;
+    background: transparent;
+  }
+  #menuToggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: white;
+  }
   nav {
     display: none;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     margin-top: 8px;
   }
-  nav.is-open { display: grid; }
+  nav.is-open {
+    display: grid;
+  }
   nav a {
     white-space: normal;
     padding: 9px;
@@ -208,4 +232,40 @@ td {
   .form {
     padding: 14px;
   }
+}
+
+nav a[aria-current="page"] {
+  background: #213756;
+  color: #fff;
+}
+button {
+  font: inherit;
+}
+.primary:hover {
+  background: #174fc7;
+}
+#message:empty {
+  display: none;
+}
+.card h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+}
+
+nav a[aria-current="page"] {
+  background: #213756;
+  color: #fff;
+}
+button {
+  font: inherit;
+}
+.primary:hover {
+  background: #174fc7;
+}
+#message:empty {
+  display: none;
+}
+.card h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
 }

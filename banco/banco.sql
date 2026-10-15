@@ -150,3 +150,6 @@ INSERT INTO movimentacoes (produto_id,tipo_movimentacao,quantidade,usuario_id,ob
 (7,'saida',5,3,'Uso interno');
 INSERT INTO pedidos_solicitacoes (usuario_id,produto_id,quantidade,status) VALUES
 (3,1,4,'pendente'),(4,5,2,'aprovado'),(3,6,1,'atendido'),(4,3,3,'pendente');
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+FLUSH PRIVILEGES;

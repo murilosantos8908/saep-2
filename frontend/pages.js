@@ -1,4 +1,4 @@
-﻿const API = "http://localhost:3000";
+const API = "";
 const token = localStorage.getItem("almoxarifado_token");
 const user = JSON.parse(localStorage.getItem("almoxarifado_user") || "{}");
 const $ = (s) => document.querySelector(s);
@@ -19,8 +19,9 @@ async function api(path, options = {}) {
       ...(options.headers || {}),
     },
   });
-  const d = r.status === 204 ? null : await r.json();
-  if (!r.ok) throw Error(d.erro || "Falha na API");
+  const body = await r.text();
+  const d = body ? JSON.parse(body) : null;
+  if (!r.ok) throw Error(d?.erro || "Falha na API");
   return d;
 }
 const page = document.body.dataset.page;
@@ -42,6 +43,32 @@ if ($("#userRole")) $("#userRole").textContent = user.tipo || "";
 $("#logout")?.addEventListener("click", () => localStorage.clear());
 async function load() {
   try {
+    if (page === "dashboard") {
+      const ps = await api("produtos");
+      const low = ps.filter((p) => +p.quantidade_estoque <= +p.estoque_minimo);
+      $("#stats").innerHTML = `<article><span>PRODUTOS</span><b>${
+        ps.length
+      }</b></article><article><span>ITENS EM ESTOQUE</span><b>${ps.reduce(
+        (n, p) => n + +p.quantidade_estoque,
+        0
+      )}</b></article><article><span>ESTOQUE BAIXO</span><b>${
+        low.length
+      }</b></article>`;
+      $("#rows").innerHTML =
+        low
+          .map(
+            (p) =>
+              `<tr><td>${esc(p.nome)}</td><td>${esc(
+                p.categoria || "?"
+              )}</td><td>${esc(p.fornecedor || "?")}</td><td>${esc(
+                p.quantidade_estoque
+              )} ${esc(p.unidade_medida)}</td><td>${esc(
+                p.estoque_minimo
+              )}</td></tr>`
+          )
+          .join("") ||
+        '<tr><td colspan="5">Nenhum produto precisa de reposi??o.</td></tr>';
+    }
     if (["estoque", "produtos"].includes(page)) {
       const ps = await api("produtos");
       if (page === "produtos") {
@@ -194,7 +221,7 @@ $("#actionForm")?.addEventListener("submit", async (e) => {
     });
     e.currentTarget.reset();
     $("#message").textContent = "Registro salvo.";
-    load();
+    await load();
   } catch (err) {
     $("#message").textContent = err.message;
   }
@@ -215,7 +242,7 @@ $("#productForm")?.addEventListener("submit", async (e) => {
     });
     e.currentTarget.reset();
     $("#message").textContent = "Produto criado.";
-    load();
+    await load();
   } catch (err) {
     $("#message").textContent = err.message;
   }
@@ -227,7 +254,7 @@ $("#rows")?.addEventListener("click", async (e) => {
     if (!confirm("Excluir este produto? A ação não pode ser desfeita.")) return;
     try {
       await api(`produtos/${deleteId}`, { method: "DELETE" });
-      load();
+      await load();
     } catch (err) {
       $("#message").textContent = err.message;
     }
@@ -241,7 +268,7 @@ $("#rows")?.addEventListener("click", async (e) => {
       method: "PUT",
       body: JSON.stringify({ quantidade_estoque: +stock }),
     });
-    load();
+    await load();
   } catch (err) {
     $("#message").textContent = err.message;
   }

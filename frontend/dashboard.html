@@ -1,272 +1,64 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Almoxarifado | Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="dashboard.css" />
+    <title>Painel | Almoxarifado</title>
+    <link rel="stylesheet" href="pages.css" />
   </head>
-
-  <body>
-    <aside class="sidebar">
-      <div class="brand">
-        <span class="brand-mark">âœ¦</span><span>Almoxarifado</span>
+  <body data-page="dashboard">
+    <aside>
+      <div class="nav-heading">
+        <h2>Almoxarifado</h2>
+        <button
+          id="menuToggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="primaryNav"
+        >
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <nav aria-label="Navegação principal">
-        <small>MENU PRINCIPAL</small
-        ><a class="active" href="dashboard.html">â–¦ <span>VisÃ£o geral</span></a
-        ><a href="estoque.html">â–¤ <span>Estoque</span><i>3</i></a
-        ><a href="movimentacoes.html">â‡„ <span>MovimentaÃ§Ãµes</span></a
-        ><a href="solicitacoes.html">â˜· <span>SolicitaÃ§Ãµes</span><i>5</i></a
-        ><small>GESTÃƒO</small><a href="produtos.html">â–£ <span>Produtos</span></a
-        ><a href="fornecedores.html">â™§ <span>Fornecedores</span></a
-        ><a href="relatorios.html">â–¥ <span>RelatÃ³rios</span></a>
+      <nav id="primaryNav">
+        <a href="dashboard.html" aria-current="page">Painel</a
+        ><a href="estoque.html">Estoque</a
+        ><a href="movimentacoes.html">Movimentações</a
+        ><a href="solicitacoes.html">Solicitações</a
+        ><a href="produtos.html">Produtos</a
+        ><a href="fornecedores.html">Fornecedores</a
+        ><a href="relatorios.html">Relatórios</a
+        ><a href="login.html" id="logout">Sair</a>
       </nav>
-      <div class="sidebar-bottom">
-        <a href="#config">âš™ <span>ConfiguraÃ§Ãµes</span></a
-        ><a href="login.html" id="logout">â†ª <span>Sair</span></a>
-      </div>
     </aside>
-    <main class="main">
+    <main>
       <header>
-        <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false">â˜°</button>
-        <div class="search">
-          âŒ• <input placeholder="Pesquisar no sistema..." />
-        </div>
-        <div class="header-actions">
-          <button>â—”</button>
-          <div class="user">
-            <span class="avatar">AO</span
-            ><span
-              ><b id="userName">Ana Oliveira</b
-              ><small>Administrador</small></span
-            ><span>âŒ„</span>
-          </div>
-        </div>
+        Olá, <b id="userName">Usuário</b><small id="userRole"></small>
       </header>
-      <div class="content">
-        <div class="page-title">
-          <div>
-            <p class="eyebrow">QUARTA-FEIRA, 14 DE OUTUBRO DE 2026</p>
-            <h1>Bom dia, Ana <span>âœ¦</span></h1>
-            <p class="muted">Aqui estÃ¡ o resumo do seu almoxarifado hoje.</p>
-          </div>
-          <button class="primary-btn" onclick="openModal()">
-            ï¼‹ Nova movimentaÃ§Ã£o
-          </button>
-        </div>
-        <section class="stats">
-          <article>
-            <div class="stat-icon blue">â–¤</div>
-            <span>ITENS EM ESTOQUE</span><b>1.248</b
-            ><small class="up">â†— 8,2% <i>vs. mÃªs anterior</i></small>
-          </article>
-          <article>
-            <div class="stat-icon green">â†—</div>
-            <span>ENTRADAS NO MÃŠS</span><b>386</b
-            ><small class="up">â†— 12,5% <i>vs. mÃªs anterior</i></small>
-          </article>
-          <article>
-            <div class="stat-icon orange">â†˜</div>
-            <span>SAÃDAS NO MÃŠS</span><b>214</b
-            ><small class="down">â†˜ 4,3% <i>vs. mÃªs anterior</i></small>
-          </article>
-          <article>
-            <div class="stat-icon red">!</div>
-            <span>ESTOQUE BAIXO</span><b>3</b
-            ><small class="danger">Requer atenÃ§Ã£o</small>
-          </article>
-        </section>
-        <section class="grid">
-          <article class="panel chart-panel">
-            <div class="panel-head">
-              <div>
-                <h3>MovimentaÃ§Ãµes</h3>
-                <p class="muted">Entradas e saÃ­das nos Ãºltimos 7 dias</p>
-              </div>
-              <select>
-                <option>Ãšltimos 7 dias</option>
-                <option>Este mÃªs</option>
-              </select>
-            </div>
-            <div class="chart">
-              <div class="y-labels">
-                <span>100</span><span>75</span><span>50</span><span>25</span
-                ><span>0</span>
-              </div>
-              <div class="bars">
-                <div>
-                  <i style="height: 45%"></i
-                  ><i class="out" style="height: 26%"></i><small>08</small>
-                </div>
-                <div>
-                  <i style="height: 60%"></i
-                  ><i class="out" style="height: 36%"></i><small>09</small>
-                </div>
-                <div>
-                  <i style="height: 42%"></i
-                  ><i class="out" style="height: 29%"></i><small>10</small>
-                </div>
-                <div>
-                  <i style="height: 82%"></i
-                  ><i class="out" style="height: 49%"></i><small>11</small>
-                </div>
-                <div>
-                  <i style="height: 67%"></i
-                  ><i class="out" style="height: 38%"></i><small>12</small>
-                </div>
-                <div>
-                  <i style="height: 92%"></i
-                  ><i class="out" style="height: 56%"></i><small>13</small>
-                </div>
-                <div>
-                  <i style="height: 73%"></i
-                  ><i class="out" style="height: 43%"></i><small>14</small>
-                </div>
-              </div>
-            </div>
-            <div class="legend">
-              <span><i></i> Entradas</span><span><i></i> SaÃ­das</span>
-            </div>
-          </article>
-          <article class="panel alert-panel">
-            <div class="panel-head">
-              <div>
-                <h3>Estoque baixo</h3>
-                <p class="muted">Produtos que precisam de reposiÃ§Ã£o</p>
-              </div>
-              <a href="estoque.html">Ver todos â†’</a>
-            </div>
-            <div class="alert-item">
-              <span class="product-icon">ðŸ§´</span>
-              <div><b>Ãgua sanitÃ¡ria 5L</b><small>QuÃ­mica Limpa</small></div>
-              <strong>4 <small>/ mÃ­n. 10</small></strong>
-            </div>
-            <div class="alert-item">
-              <span class="product-icon">ðŸ§½</span>
-              <div><b>Esponja multiuso</b><small>Casa & Cia</small></div>
-              <strong>8 <small>/ mÃ­n. 20</small></strong>
-            </div>
-            <div class="alert-item">
-              <span class="product-icon">ðŸ§¤</span>
-              <div><b>Luva de limpeza M</b><small>Protege Mais</small></div>
-              <strong>6 <small>/ mÃ­n. 15</small></strong>
-            </div>
-          </article>
-        </section>
-        <section class="panel table-panel">
-          <div class="panel-head">
-            <div>
-              <h3>MovimentaÃ§Ãµes recentes</h3>
-              <p class="muted">Ãšltimas entradas e saÃ­das registradas</p>
-            </div>
-            <a href="movimentacoes.html">Ver histÃ³rico completo â†’</a>
-          </div>
+      <section class="content">
+        <h1>Painel</h1>
+        <p>Resumo atualizado do almoxarifado</p>
+        <div id="message" role="status"></div>
+        <section id="stats" class="stats"></section>
+        <section class="card">
+          <h2>Produtos com estoque baixo</h2>
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>PRODUTO</th>
-                  <th>TIPO</th>
-                  <th>QUANTIDADE</th>
-                  <th>RESPONSÃVEL</th>
-                  <th>DATA E HORA</th>
-                  <th></th>
+                  <th>Produto</th>
+                  <th>Categoria</th>
+                  <th>Fornecedor</th>
+                  <th>Quantidade</th>
+                  <th>Mínimo</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <span class="product-icon blue-bg">ðŸ§¼</span
-                    ><b>Detergente neutro 500ml</b>
-                  </td>
-                  <td><span class="pill entry">Entrada</span></td>
-                  <td><b>+ 120 un.</b></td>
-                  <td>Marcos Silva</td>
-                  <td>Hoje, 09:42</td>
-                  <td>â€¢â€¢â€¢</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="product-icon purple-bg">ðŸ§»</span
-                    ><b>Papel toalha interfolhado</b>
-                  </td>
-                  <td><span class="pill exit">SaÃ­da</span></td>
-                  <td><b>- 30 pct.</b></td>
-                  <td>Juliana Costa</td>
-                  <td>Hoje, 08:15</td>
-                  <td>â€¢â€¢â€¢</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="product-icon orange-bg">ðŸ§¹</span
-                    ><b>Desinfetante lavanda 2L</b>
-                  </td>
-                  <td><span class="pill entry">Entrada</span></td>
-                  <td><b>+ 48 un.</b></td>
-                  <td>Marcos Silva</td>
-                  <td>Ontem, 16:30</td>
-                  <td>â€¢â€¢â€¢</td>
-                </tr>
-              </tbody>
+              <tbody id="rows"></tbody>
             </table>
           </div>
         </section>
-      </div>
+      </section>
     </main>
-    <div id="modal" class="modal">
-      <div class="modal-box">
-        <button class="close" onclick="closeModal()">Ã—</button>
-        <h2>Nova movimentaÃ§Ã£o</h2>
-        <p class="muted">Registre uma entrada ou saÃ­da de estoque.</p>
-        <label
-          >Produto<select>
-            <option>Detergente neutro 500ml</option>
-            <option>Ãgua sanitÃ¡ria 5L</option>
-            <option>Desinfetante lavanda 2L</option>
-          </select></label
-        ><label
-          >Tipo<select>
-            <option>Entrada</option>
-            <option>SaÃ­da</option>
-          </select></label
-        ><label>Quantidade<input type="number" min="1" value="1" /></label
-        ><button class="primary-btn" onclick="closeModal()">
-          Registrar movimentaÃ§Ã£o
-        </button>
-      </div>
-    </div>
-    <script>
-      if (!localStorage.getItem("almoxarifado_token")) {
-        location.replace("login.html");
-      }
-      const u = JSON.parse(localStorage.getItem("almoxarifado_user") || "{}");
-      if (u.nome) document.querySelector("#userName").textContent = u.nome;
-      document.querySelector("#logout").onclick = () => localStorage.clear();
-      const sidebar = document.querySelector(".sidebar");
-      const menuButton = document.querySelector(".menu-btn");
-      menuButton.setAttribute("aria-label", "Abrir menu");
-      menuButton.onclick = () => {
-        const opened = sidebar.classList.toggle("open");
-        menuButton.setAttribute("aria-label", opened ? "Fechar menu" : "Abrir menu");
-        menuButton.setAttribute("aria-expanded", String(opened));
-      };
-      sidebar.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
-        sidebar.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Abrir menu");
-      }));
-      function openModal() {
-        document.querySelector("#modal").classList.add("show");
-      }
-      function closeModal() {
-        document.querySelector("#modal").classList.remove("show");
-      }
-    </script>
+    <script src="pages.js"></script>
   </body>
 </html>
